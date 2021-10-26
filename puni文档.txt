@@ -1,0 +1,174 @@
+Puni.js 文档
+
+
+使用文件
+<script src="./dist/puni.js"></script>
+
+
+调用方法列表
+1.获取app信息
+puni.getAppInfo()
+
+Returns:
+{
+    result: Boolean,
+    data: {
+        name: 'String',
+        version: 'String',
+    },
+    msg: 'String'
+}
+
+
+Example
+puni.getAppInfo().then(console.log)
+
+> {
+    "result":true,
+    "data":{
+        "name":"Puni",
+        "version":"2.0.8"
+    },
+    "msg":"success"
+}
+
+
+
+2.获取当前的钱包
+puni.getCurrentWallet()
+
+Returns:
+{
+    result: Boolean,
+    data: {
+        name: 'String',
+        address: 'String',
+	blockchain: 'String',
+    },
+    msg: 'String'
+}
+
+
+Example
+puni.getCurrentWallet().then(console.log)
+
+> {
+    "result":true,
+    "data":{
+        "name":"myWallet",
+        "address":"TJzXt1sZautjqXnpjQT4xSCBHNSYgBkDr3",
+        "blockchain":"tron"
+    },
+    "msg":"success"
+}
+
+
+
+3.关闭当前web界面
+puni.close()
+
+Example
+puni.close()
+
+
+
+3.返回web上一级界面
+puni.back()
+
+Example
+puni.back()
+
+
+
+4.跳转到交易中心
+puni.transferCenter()
+
+Example
+puni.transferCenter()
+
+
+
+5 控制器的导航栏可见性
+
+puni.setMenubar(params)
+
+Parameters:
+{
+    flag : Int  1是显示  2是隐藏   默认是1
+}
+
+
+Example
+puni.setMenubar({
+    flag: 0
+});
+
+
+
+
+6  ========== 对广播数据进行签名 ===============
+
+puni.sign(params）
+
+
+Parameters:
+{
+    raw_data_hex : String  
+}
+
+raw_data_hex 是签名数据中raw_data的进行编码并转换为hex字符串
+
+Tron文档地址 https://cn.developers.tron.network/docs/%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E4%BA%A4%E6%98%93
+
+Returns:
+{
+    result: Boolean,
+    data: {
+        sign: 'String',
+    },
+    msg: 'String'
+}
+
+
+
+Example
+puni.sign({
+    raw_data_hex: "0a02c75b18db8e9b0122087cfc890c6e4d7a1540b0a6b0a28a2e52046d656d6f5a68080112640a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412330a1541bf97a54f4b829c4e9253b26024b1829e1a3b1120121541859009fd225692b11237a6ffd8fdba2eb7140cca1880c2d72f62077363726970747370d0949b918a2e"
+}).then(console.log);
+
+
+> {
+    "result":true,
+    "data":{
+        "sign":"20e1e286deb1476b150c0beacfd9001bef99b8c59d36e958a4486780c509127b6313dffb0bd6bd6da162972116b3f2389a68a9e5f676240eeff8ee0d2f5864951b",
+    },
+    "msg":"success"
+}
+
+
+
+
+7.导入钱包
+
+puni.importWallet()
+
+
+Example
+puni.importWallet()
+
+
+
+
+
+8.创建钱包
+
+puni.createWallet()
+
+
+Example
+puni.createWallet()
+
+
+
+
+
